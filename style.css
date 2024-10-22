@@ -1,0 +1,220 @@
+@font-face {
+    font-family: 'Averia Serif Libre';
+      src: url('../css/Averia_Serif_Libre/AveriaSerifLibre-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Averia Serif Libre';
+      src: url('../css/Averia_Serif_Libre/AveriaSerifLibre-LightItalic.woff') format('woff');
+      font-weight: 300;
+      font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Averia Serif Libre';
+      src: url('../css/Averia_Serif_Libre/AveriaSerifLibre-Regular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Averia Serif Libre';
+      src: url('../css/Averia_Serif_Libre/AveriaSerifLibre-Bold.woff') format('woff');
+      font-weight: 700;
+      font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Averia Serif Libre';
+      src: url('../css/Averia_Serif_Libre/AveriaSerifLibre-BoldItalic.woff') format('woff');
+      font-weight: 700;
+      font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Overpass';
+      src: url('../css/Overpass/Overpass-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Overpass';
+      src: url('../css/Overpass/Overpass-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Overpass';
+      src: url('../css/Overpass/Overpass-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Overpass';
+      src: url('../css/Overpass/Overpass-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Overpass';
+      src: url('../css/Overpass/Overpass-BoldItalic.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Montserrat';
+      src: url('../fonts/overpass_mono/overpass-mono-bold-webfont.woff') format('woff'),
+            url('../fonts/overpass_mono/overpass-mono-bold-webfont.woff2') format('woff2');
+    font-weight: 700;
+  }
+
+
+  html {
+    --background-color: #CDC1E5;
+    --titlesandtext: #D96B3C;
+    --hovercolor: #D96B3C;
+  }
+  
+  * {
+    box-sizing: border-box;
+    }
+ 
+body {
+  background-color: var(--background-color);
+  background-size: cover;
+   color: var(--titlesandtext);
+   width: 100%;
+   margin: 0;
+}
+  
+h1 { 
+  font-family: 'Averia Serif Libre', Georgia, sans-serif;
+  font-weight: 700; /* BOLD */
+  font-size: 30px;
+}
+
+h2 { 
+  font-family: 'Overpass', Georgia, sans-serif;
+  font-size: 20px; /* BOLD */
+  font-weight: 700;
+}
+
+h3 { 
+  font-family: 'Averia Serif Libre', Georgia, sans-serif;
+  font-weight: 400; /* SKINNY */
+  font-size: 20px;
+  margin: 0px;
+}
+
+h4 { 
+  font-family: 'Overpass Mono', Georgia, sans-serif;
+  font-weight: 300; /* SKINNY */
+  font-size: 18px;
+}
+    
+a {
+  font-family: 'Overpass', Georgia, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  text-decoration: none;
+  color:#36454F;
+}
+
+p {
+    font-family: 'Overpass Mono', Georgia, sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+/* NAVBAR */
+#currentPage {
+    color: var(--hovercolor);
+}
+
+.navbar {
+    position: fixed; 
+    top:0; 
+    left: 0; 
+    width: 100%; 
+    padding: 50px 90px 0px 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: #CDC1E5;
+    border-bottom: 1px solid black;
+}
+   
+.menu-items li {
+       display: inline;
+       margin: 0 10px;
+       font-size: 18px;
+}
+   
+.menu-items li a {
+    color: #36454F;
+    text-decoration: none;
+} 
+
+.content {
+    display: flex;
+    margin-top: 100px;
+    text-align: left;
+    padding: 40px;
+    font-size: 2rem;
+}
+  
+.content h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+  
+.content p {
+    max-width: 600px;
+    margin: 20px auto;
+    line-height: 1.6;
+}
+
+  .search form { 
+    display: flex; 
+    margin:0; 
+}
+
+.search input { 
+    padding: 10px;
+    border: 1px solid black;
+    outline: none;
+    border-radius: 10px;
+    background-color: #FFEDC2;
+}
+
+.search submit { 
+    padding: 10px;
+    border: 1px solid black;
+    outline: none;
+    border-radius: 10px;
+    background-color: #FFEDC2;
+}
+
+/* HOMEPAGE TOP CONTENT */
+
+.content {
+    margin: 5rem;
+    padding-top: 90px;
+}
+
+.content .text {
+    width: 50%;
+}
+
+.content img {
+    display: block;
+    width: 50%;
+}
