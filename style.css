@@ -212,17 +212,22 @@ p {
     margin: 160px 70px 60px 10px;
 }
 
-/* RECIPE CONTAINER */
+/* HOMEPAGE RECIPE CONTAINER */
+
+.homepageContainer {
+    margin: 80px 50px 120px 50px;
+}
+
 
 .card-container {
   display: flex;
   gap: 20px;
   justify-content: center;
-  margin: 150px 0 150px 0;
+  margin: 70px 0 70px 0;
 }
 
 .card {
-  width: 300px;
+  width: 100%;
   background-color: white;
   border: 2px solid #d4c5aa;
   border-radius: 15px;
@@ -266,4 +271,106 @@ p {
 
 .btn:hover {
   background-color: #eee;
+}
+
+/* RECIPE DETAIL PAGE*/
+
+.recipeDetail {
+  margin: 160px 70px 20px 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recipeDetail img {
+  display: block;
+  width: 40em;
+  height:40em;
+  margin: 0px 70px 60px 0px;
+}
+
+.recipeText {
+  width: 50%;
+  margin: 160px 10px 20px 70px;
+}
+
+
+@media (max-width: 1125px) { 
+  .content {
+    margin: 10px 0;
+  }
+
+.content .text {
+    width: 50%;
+    margin: 100px 10px 20px 70px;
+    font-size: 1.7rem;
+}
+
+  .content img {
+    display: block;
+    width: 16em;
+    height:16em;
+}
+}
+
+@media (max-width: 1060px) { 
+
+.content .text {
+    width: 50%;
+    margin: 100px 10px 20px 70px;
+    font-size: 1.6rem;
+}
+
+  .content img {
+    display: block;
+    width: 15em;
+    height:15em;
+    margin: 160px 70px 60px 10px;
+}
+}
+
+
+@media (max-width: 980px) { 
+  .content {
+    display: flex;
+    flex-direction:column-reverse;
+    align-items: center;
+    text-align: center;
+}
+
+.content .text {
+    margin: 20px 0;
+    width: 100%;
+    font-size: 1.6rem;
+}
+
+.content img {
+    width: 14em;
+    height: 14em;
+    margin: 20px 0;
+}
+
+.homepageContainer {
+    text-align: center;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.card {
+  width: 60%;
+}
+
+}
+
+@media (max-width: 980px) { 
+
+  .card {
+    width: 90%;
+  }
 }
