@@ -291,7 +291,7 @@ p {
 /* HOMEPAGE RECIPE CONTAINER */
 
 .homepageContainer {
-    margin: 80px 50px 120px 50px;
+    margin: 100px 50px 120px 50px;
 }
 
 
@@ -524,8 +524,17 @@ p {
 
 }
 
+/* HELP PAGE */
+.help {
+  margin: 100px 10px 50px 70px;
+}
+
+.help p {
+  color: black;
+}
+
 footer {
   background-color: #d95c4a;
-  padding: 5rem;
+  padding: 2rem;
   color: beige;
 }
