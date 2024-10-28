@@ -10,37 +10,38 @@
 </head>
 
 <body>    
+
   <div class="header">
-  <nav class="navbar">
-      <div class="logo">
-        <a href="index.html"><h3>Savory Shelf</h3></a>
+    <nav class="navbar">
+        <div class="logo">
+          <a href="index.html"><h3>Savory Shelf</h3></a>
+        </div>
+  
+      <div class="search">
+          <form>
+              <!-- <input type="text" placeholder="Search...">
+              <a href="noresultsfound.html">
+                <img src="search.png" alt="Search">
+              </a>
+               -->        
+  
+          </form>
+          <input type="text" id="searchInput" placeholder="Enter file name...">
+          <button class="searchButton" id="searchButton">Search</button>
+  
       </div>
-
-    <div class="search">
-        <form>
-            <!-- <input type="text" placeholder="Search...">
-            <a href="noresultsfound.html">
-              <img src="search.png" alt="Search">
-            </a>
-             -->        
-
-        </form>
-        <input type="text" id="searchInput" placeholder="Enter file name...">
-        <button class="searchButton" id="searchButton">Search</button>
-
-    </div>
-
-      <ul class="nav-bar">
-      <input type="checkbox" id="check">
-      <span class="menu">
-        <li><a href="index.html" id="currentPage" class="underline">HOME</a></li>
-        <li><a href="recipe.html" class="underline">Recipe</a></li>
-        <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
-      </span>
-      <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
-    </ul>
-  </nav>
-</div>
+  
+        <ul class="nav-bar">
+        <input type="checkbox" id="check">
+        <span class="menu">
+          <li><a href="index.html" id="currentPage" class="underline">HOME</a></li>
+          <li><a href="recipe.html" class="underline">Recipe</a></li>
+          <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+        </span>
+        <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+      </ul>
+    </nav>
+  </div>
 
 
 <div class="homepageContainer">
@@ -66,6 +67,10 @@
     </div>
   </div>
 </div>
+
+<footer>
+  <p>footer</p>
+</footer>
 
 <script src="index.js"></script>
 </body>

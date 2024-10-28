@@ -114,9 +114,10 @@ h3 {
 }
 
 h4 { 
-  font-family: 'Overpass Mono', Georgia, sans-serif;
-  font-weight: 300; /* SKINNY */
-  font-size: 18px;
+  font-family: 'Overpass', Georgia, sans-serif;
+  font-size: 20px; /* BOLD */
+  font-weight: 700;
+  font-style: italic;
 }
     
 a {
@@ -351,7 +352,7 @@ p {
 /* RECIPE DETAIL PAGE*/
 
 .recipeDetail {
-  margin: 120px 70px 20px 70px;
+  margin: 120px 70px 0px 70px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -359,41 +360,46 @@ p {
 
 .recipeDetail img {
   display: block;
-  width: 40em;
-  height:40em;
-  margin: 0px 70px 60px 0px;
+  width: 30em;
+  height:30em;
+  margin: 0px 70px 0px 0px;
+  border-radius: 30px;
 }
 
-.recipeText {
-  width: 50%;
-  margin: 160px 10px 20px 70px;
+.recipetext p {
+  color: black;
 }
 
 .sorry {
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
+  margin: 100px 10px 20px 70px;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  text-align: center;
   padding: 20px;
 }
 
-.ingredients hr{
-  width: 80%;
+.sorry .card {
+  width: 300px;
+}
+
+.detail-text {
+  display: flex;
+  justify-content: center;
 }
 
 .ingredients {
   margin: 70px;
 }
 
-.instructions hr{
-  width: 80%;
+.ingredients li {
+  color: black;
 }
 
 .instructions {
   margin: 70px;
+}
+
+.instructions li {
+  color: black;
 }
 
 @media (max-width: 1125px) { 
@@ -518,3 +524,8 @@ p {
 
 }
 
+footer {
+  background-color: #d95c4a;
+  padding: 5rem;
+  color: beige;
+}
