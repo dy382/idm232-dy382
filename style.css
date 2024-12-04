@@ -153,7 +153,7 @@ p {
 }
 
 .navbar .logo {
-  padding: 0 20px;
+  padding: 28px 20px;
 }
 
 .search form { 
@@ -434,6 +434,11 @@ p {
     height:15em;
     margin: 160px 70px 60px 10px;
 }
+
+.recipeDetail {
+  flex-direction: column;
+}
+
 }
 
 
@@ -472,6 +477,34 @@ p {
 .card {
   width: 60%;
 }
+
+.menu {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  z-index: 100;
+  background-color: black;
+  transition: all 0.2s ease-in-out;
+}
+.menu li {
+  margin-top: 40px;
+}
+.menu li a {
+  padding: 10px;
+}
+.open-menu, .close-menu {
+  display: block;
+}
+#check:checked ~ .menu {
+  right: 0;
+}
+
+
 }
 
 
@@ -491,35 +524,19 @@ p {
   .card {
     width: 90%;
   }
-  .menu {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 80%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    right: -100%;
-    z-index: 100;
-    background-color: black;
-    transition: all 0.2s ease-in-out;
-  }
-  .menu li {
-    margin-top: 40px;
-  }
-  .menu li a {
-    padding: 10px;
-  }
-  .open-menu, .close-menu {
-    display: block;
-  }
-  #check:checked ~ .menu {
-    right: 0;
-  }
 
 .search input { 
   width: 120px;
     padding: 10px;
+}
+
+.recipeDetail img {
+  width: 20em;
+  height: auto;
+}
+
+.detail-text {
+  flex-direction: column;
 }
 
 }
