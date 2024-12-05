@@ -25,26 +25,29 @@ require_once './db.php';
         <a href="index.php"><h3>Savory Shelf</h3></a>
       </div>
 
+
     <div class="search">
-        <form>
-            <!-- <input type="text" placeholder="Search...">
-            <a href="noresultsfound.html">
-              <img src="search.png" alt="Search">
-            </a>
-             -->        
-
-        </form>
-        <input type="text" id="searchInput" placeholder="Enter file name...">
-        <button class="searchButton" id="searchButton">Search</button>
-
+            <input type="text" id="searchInput" placeholder="Search for recipes..." />
+            <button id="searchButton">Search</button>
+        </div>
     </div>
+
+<!-- Recipe Cards Section -->
+<!-- <section class="cards-section">
+    <h2>Popular Recipes</h2>
+    <div id="cards-container" class="cards-container wide">
+        <!-- Recipe cards will be populated here 
+    </div>
+</section> -->
+
+
 
       <ul class="nav-bar">
       <input type="checkbox" id="check">
       <span class="menu">
-        <li><a href="/index.php" id="currentPage" class="underline">HOME</a></li>
-        <li><a href="/recipe.php" class="underline">Recipes</a></li>
-        <li><a href="/help.php" class="underline">Help</a></li>
+        <li><a href="index.php" id="currentPage" class="underline">HOME</a></li>
+        <!-- <li><a href="recipe.php" class="underline">Recipes</a></li> -->
+        <li><a href="help.php" class="underline">Help</a></li>
         <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
       </span>
       <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
@@ -55,15 +58,15 @@ require_once './db.php';
 <div class="content">
     <div class="text">
         <h1>Curate, Cook, and Conquer the Kitchen.</h1>
-        <a href="ShrimpFraDiavolo.html" class="btn">See More</a>
+        <a href="recipe.php" class="btn">See More</a>
     </div>
-    <img src="images/Recipe_Spicy_Pork_Korean_Rice_Cakes_with_Bok_Choy/1225_FPM_Rice-Cakes_100092_WEB_SQ_hi_res.jpg" alt="Recipe_Spicy_Pork_Korean_Rice_Cakes_with_Bok_Choy">
+    <!-- <img src="images/32-spicyporkkorean/32-spicyporkkorean-hero.webp" alt="Recipe_Spicy_Pork_Korean_Rice_Cakes_with_Bok_Choy"> -->
 </div>
 
 <!-- Recipe Cards Section -->
 <section class="cards-section">
                 <h2>Popular Recipes</h2>
-                <div class="cards-container">
+                <div class="cards-container wide">
                     <?php
                     // Database connection
                     $conn = new mysqli($db_server, $db_user, $db_pass, $db_name);
@@ -86,10 +89,10 @@ require_once './db.php';
 
                             echo '<article class="recipe-card">';
                             echo '<a href="recipe.php?id=' . $row["id"] . '">'; // Link with recipe ID
-                            echo '<img src="' . utf8_encode($imagePath) . '" alt="' . utf8_encode($row["recipe_name"]) . '">';
+                            echo '<img src="' . utf8_encode($imagePath) . '" alt="' . utf8_encode($row["recipe_name"]) . '" loading="lazy">';
                             echo '<h3>' . utf8_encode($row["recipe_name"]) . '</h3>';
                             echo '</a>';
-                            echo '<p>' . htmlspecialchars($row["cuisine"]) . ' | ' . $row["cook_time"] . ' min | ' . $row["servings"] . ' Servings</p>';
+                            echo '<p>' . htmlspecialchars($row["cuisine"]) . ' | ' . $row["cook_time"] . ' | ' . $row["servings"] . ' </p>';
                             echo '</article>';
                         }
                     } else {
@@ -105,6 +108,6 @@ require_once './db.php';
   <p>© 2024 Savory Shelf</p>
 </footer>
 
-<script src="index.js"></script>
+<script src="index.js" defer></script>
 </body>
 </html>

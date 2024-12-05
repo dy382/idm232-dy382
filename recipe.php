@@ -35,7 +35,7 @@
       <input type="checkbox" id="check">
       <span class="menu">
         <li><a href="index.php" id="currentPage" class="underline">HOME</a></li>
-        <li><a href="recipe.php" class="underline">Recipes</a></li>
+        <!-- <li><a href="recipe.php" class="underline">Recipes</a></li> -->
         <li><a href="help.php" class="underline">Help</a></li>
         <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
       </span>
@@ -45,7 +45,7 @@
 </div>
 
 
-<div>
+<div class="detail">
 <?php
 // Database connection
 require_once './db.php';
@@ -62,7 +62,7 @@ $recipeId = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 if ($recipeId > 0) {
     // Fetch recipe details
-    $sql = "SELECT recipe_name, cuisine, cook_time, servings, descriptions, ingredients, steps, dish_image 
+    $sql = "SELECT recipe_name, cuisine, cook_time, servings, descriptions, ingredients, steps, dish_image, ingredients_image, steps_image
             FROM recipes WHERE id = ?";
     $stmt = $conn->prepare($sql);
     
@@ -83,13 +83,16 @@ if ($recipeId > 0) {
         echo '<img src="' . utf8_encode($recipe['dish_image']) . '" alt="' . htmlspecialchars($recipe['recipe_name']) . '" />';
         echo '</div>';
         echo '<p><strong>Cuisine:</strong> ' . htmlspecialchars($recipe['cuisine']) . '</p>';
-        echo '<p><strong>Cook Time:</strong> ' . htmlspecialchars($recipe['cook_time']) . ' min</p>';
+        echo '<p><strong>Cook Time:</strong> ' . htmlspecialchars($recipe['cook_time']) . ' </p>';
         echo '<p><strong>Servings:</strong> ' . htmlspecialchars($recipe['servings']) . '</p>';
         echo '<p><strong>Description:</strong> ' . htmlspecialchars($recipe['descriptions']) . '</p>';
         echo '<h2>Ingredients</h2>';
 
         // Split ingredients by '*' delimiter and display as list items
         $ingredients = explode('*', $recipe['ingredients']);
+          echo '<div class="ingredients-image">';
+          echo '<img src="' . utf8_encode($recipe['ingredients_image']) . '" alt="' . htmlspecialchars($recipe['recipe_name']) . '" />';
+          echo '</div>';
         echo '<ul>';
         foreach ($ingredients as $ingredient) {
             if (!empty(trim($ingredient))) {
@@ -99,6 +102,12 @@ if ($recipeId > 0) {
         echo '</ul>';
 
         echo '<h2>Steps</h2>';
+
+        
+        echo '<div class="steps-image">';
+        echo '<img src="' . utf8_encode($recipe['steps_image']) . '" alt="' . htmlspecialchars($recipe['recipe_name']) . '" />';
+        echo '</div>';
+
         echo '<p>' . nl2br(htmlspecialchars($recipe['steps'])) . '</p>';
     } else {
         echo '<p>No recipes found for ID: ' . $recipeId . '</p>';

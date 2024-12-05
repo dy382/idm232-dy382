@@ -34,7 +34,7 @@
       <input type="checkbox" id="check">
       <span class="menu">
         <li><a href="index.php" id="currentPage" class="underline">HOME</a></li>
-        <li><a href="recipe.php" class="underline">Recipes</a></li>
+        <!-- <li><a href="recipe.php" class="underline">Recipes</a></li> -->
         <li><a href="help.php" class="underline">Help</a></li>
         <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
       </span>
