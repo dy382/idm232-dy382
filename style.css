@@ -555,3 +555,7 @@ footer {
   padding: 2rem;
   color: beige;
 }
+
+.recipe-image {
+  width: 100px;
+}
