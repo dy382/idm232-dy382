@@ -16,19 +16,6 @@
         <a href="index.php"><h3>Savory Shelf</h3></a>
       </div>
 
-    <div class="search">
-        <form>
-            <!-- <input type="text" placeholder="Search...">
-            <a href="noresultsfound.html">
-              <img src="search.png" alt="Search">
-            </a>
-             -->        
-
-        </form>
-        <input type="text" id="searchInput" placeholder="Enter file name...">
-        <button class="searchButton" id="searchButton">Search</button>
-
-    </div>
 
       <ul class="nav-bar">
       <input type="checkbox" id="check">

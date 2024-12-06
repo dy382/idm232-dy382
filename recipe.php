@@ -17,19 +17,6 @@
         <a href="index.php"><h3>Savory Shelf</h3></a>
       </div>
 
-    <div class="search">
-        <form>
-            <!-- <input type="text" placeholder="Search...">
-            <a href="noresultsfound.html">
-              <img src="search.png" alt="Search">
-            </a>
-             -->        
-
-        </form>
-        <input type="text" id="searchInput" placeholder="Enter file name...">
-        <button class="searchButton" id="searchButton">Search</button>
-
-    </div>
 
       <ul class="nav-bar">
       <input type="checkbox" id="check">
@@ -47,6 +34,8 @@
 
 <div class="detail">
 <?php
+
+
 // Database connection
 require_once './db.php';
 
@@ -85,10 +74,10 @@ if ($recipeId > 0) {
         echo '<p><strong>Cuisine:</strong> ' . htmlspecialchars($recipe['cuisine']) . '</p>';
         echo '<p><strong>Cook Time:</strong> ' . htmlspecialchars($recipe['cook_time']) . ' </p>';
         echo '<p><strong>Servings:</strong> ' . htmlspecialchars($recipe['servings']) . '</p>';
-        echo '<p><strong>Description:</strong> ' . htmlspecialchars($recipe['descriptions']) . '</p>';
+        echo '<p><strong>Description:</strong> ' . utf8_encode($recipe['descriptions']) . '</p>';
         echo '<h2>Ingredients</h2>';
 
-        // Split ingredients by '*' delimiter and display as list items
+
         $ingredients = explode('*', $recipe['ingredients']);
           echo '<div class="ingredients-image">';
           echo '<img src="' . utf8_encode($recipe['ingredients_image']) . '" alt="' . htmlspecialchars($recipe['recipe_name']) . '" />';
@@ -103,12 +92,32 @@ if ($recipeId > 0) {
 
         echo '<h2>Steps</h2>';
 
-        
+
+
+          $steps = explode('*', $recipe['steps']); // Split steps by '*'
+          $stepImages = explode('*', $recipe['steps_image']); // Split images by '*'
+          
+          echo '<div class="steps-container">';
+          foreach ($steps as $index => $step) {
+              if (!empty(trim($step))) {
+                  echo '<div class="step">';
+                  echo '<p>' . nl2br(htmlspecialchars(trim($step))) . '</p>';
+                  // Check if there is a corresponding image for this step
+                  if (isset($stepImages[$index]) && !empty($stepImages[$index])) {
+                      echo '<img src="' . htmlspecialchars($stepImages[$index]) . '" alt="Step ' . ($index + 1) . '" class="step-image" />';
+                  }
+                  echo '</div>';
+              }
+          }
+          echo '</div>';
+
+/*         echo '</div>';
+
         echo '<div class="steps-image">';
         echo '<img src="' . utf8_encode($recipe['steps_image']) . '" alt="' . htmlspecialchars($recipe['recipe_name']) . '" />';
         echo '</div>';
 
-        echo '<p>' . nl2br(htmlspecialchars($recipe['steps'])) . '</p>';
+        echo '<p>' . nl2br(htmlspecialchars($recipe['steps'])) . '</p>'; */
     } else {
         echo '<p>No recipes found for ID: ' . $recipeId . '</p>';
     }

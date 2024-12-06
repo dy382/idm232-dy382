@@ -26,21 +26,6 @@ require_once './db.php';
       </div>
 
 
-    <div class="search">
-            <input type="text" id="searchInput" placeholder="Search for recipes..." />
-            <button id="searchButton">Search</button>
-        </div>
-    </div>
-
-<!-- Recipe Cards Section -->
-<!-- <section class="cards-section">
-    <h2>Popular Recipes</h2>
-    <div id="cards-container" class="cards-container wide">
-        <!-- Recipe cards will be populated here 
-    </div>
-</section> -->
-
-
 
       <ul class="nav-bar">
       <input type="checkbox" id="check">
@@ -58,49 +43,79 @@ require_once './db.php';
 <div class="content">
     <div class="text">
         <h1>Curate, Cook, and Conquer the Kitchen.</h1>
-        <a href="recipe.php" class="btn">See More</a>
     </div>
     <!-- <img src="images/32-spicyporkkorean/32-spicyporkkorean-hero.webp" alt="Recipe_Spicy_Pork_Korean_Rice_Cakes_with_Bok_Choy"> -->
 </div>
 
 <!-- Recipe Cards Section -->
 <section class="cards-section">
+
+<div class="search">
+    <form method="GET" action="index.php">
+            <input type="text" name="query" placeholder="Search recipes..." required>
+            <button type="submit">Search</button>
+        </form>
+
+    </div>
+
                 <h2>Popular Recipes</h2>
                 <div class="cards-container wide">
-                    <?php
-                    // Database connection
-                    $conn = new mysqli($db_server, $db_user, $db_pass, $db_name);
+                <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 
-                    // Check connection
-                    if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-                    }
+require_once './db.php';
 
-                   // Fetch recipes from the database
-                    $sql = "SELECT id, recipe_name, cuisine, cook_time, servings, dish_image FROM recipes";
-                    $result = $conn->query($sql);
+// Database connection
+$conn = new mysqli($db_server, $db_user, $db_pass, $db_name);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-                    if ($result && $result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            // Use default image if dish_image is empty or file doesn't exist
-                            $imagePath = (!empty($row['dish_image']) && file_exists($row['dish_image'])) 
-                                        ? $row['dish_image'] 
-                                        : '';
+// Check for search query
+$query = isset($_GET['query']) ? $_GET['query'] : '';
+$sql = "SELECT id, recipe_name, cuisine, cook_time, servings, dish_image FROM recipes";
 
-                            echo '<article class="recipe-card">';
-                            echo '<a href="recipe.php?id=' . $row["id"] . '">'; // Link with recipe ID
-                            echo '<img src="' . utf8_encode($imagePath) . '" alt="' . utf8_encode($row["recipe_name"]) . '" loading="lazy">';
-                            echo '<h3>' . utf8_encode($row["recipe_name"]) . '</h3>';
-                            echo '</a>';
-                            echo '<p>' . htmlspecialchars($row["cuisine"]) . ' | ' . $row["cook_time"] . ' | ' . $row["servings"] . ' </p>';
-                            echo '</article>';
-                        }
-                    } else {
-                        echo "<p>No recipes found.</p>";
-                    }
+if (!empty($query)) {
+    // Update SQL to include search filter
+    $sql .= " WHERE recipe_name LIKE ? OR cuisine LIKE ?";
+}
 
-                    $conn->close();
-                    ?>
+$stmt = $conn->prepare($sql);
+if (!empty($query)) {
+    $searchTerm = '%' . $query . '%';
+    $stmt->bind_param("ss", $searchTerm, $searchTerm);
+}
+
+$stmt->execute();
+$result = $stmt->get_result();
+
+        // Display results
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $imagePath = (!empty($row['dish_image']) && file_exists($row['dish_image']))
+                            ? $row['dish_image']
+                            : 'default-image.jpg'; // Default image
+
+                echo '<article class="recipe-card">';
+                echo '<a href="recipe.php?id=' . htmlspecialchars($row["id"]) . '">';
+                echo '<img src="' . htmlspecialchars($imagePath) . '" alt="' . htmlspecialchars($row["recipe_name"]) . '">';
+                echo '<h3>' . htmlspecialchars($row["recipe_name"]) . '</h3>';
+                echo '</a>';
+                echo '<p>' . htmlspecialchars($row["cuisine"]) . ' | ' . htmlspecialchars($row["cook_time"]) . ' | ' . htmlspecialchars($row["servings"]) . ' servings</p>';
+                echo '</article>';
+            }
+        } else {
+            echo '<p>No recipes found.</p>';
+        }
+        ?>
+
+
+<?php
+$stmt->close();
+$conn->close();
+?>
                 </div>
             </section>
 
