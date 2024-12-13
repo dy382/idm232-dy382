@@ -1,4 +1,4 @@
-const response = await fetch(`search.php?query=${encodeURIComponent(query)}`);
+// const response = await fetch(`search.php?query=${encodeURIComponent(query)}`);
 
 
 document.addEventListener("DOMContentLoaded", () => {

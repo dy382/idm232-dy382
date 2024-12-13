@@ -33,7 +33,7 @@
 <div class="help">
 <h1>Help & Support</h1>
 <h2>How to Search for Recipes</h2>
-<p>Use the search bar on the home page to find recipes by name or ingredient.</p>
+<p>Use the search bar on the recipes page or click the search icon in the top menu to quickly find recipes by name or ingredients.</p>
 <h2>Viewing Recipe Details</h2>
 <p>Click on a recipe title from the search results to view detailed information.</p>
 </div>
