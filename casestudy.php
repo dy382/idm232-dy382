@@ -32,7 +32,7 @@
 <img src="./images/thumbnail.png">
 
 <h2>Overview</h2>
-<p>For my IDM 215 class, I created a project called Savory Shelf, incorporating my learned knowledge of PHP and SQL. This project served as the building blocks for understanding how to use this language and program effectively. The assignment focused on creating an intuitive recipe website that allowed users to search and browse through a comprehensive culinary database. It required a combination of design, database management, and server-side scripting to deliver a polished and user-friendly application.</p>
+<p>For my IDM 232 class, I created a project called Savory Shelf, incorporating my learned knowledge of PHP and SQL. This project served as the building blocks for understanding how to use this language and program effectively. The assignment focused on creating an intuitive recipe website that allowed users to search and browse through a comprehensive culinary database. It required a combination of design, database management, and server-side scripting to deliver a polished and user-friendly application.</p>
 
 <h2>Context and Challenge</h2>
 <p>The task was to develop a branded, responsive recipe website that enabled users to easily search for and browse recipes. The project involved organizing a large culinary database filled with diverse content. Key requirements included:</p>
