@@ -1,79 +1,4 @@
-@font-face {
-    font-family: 'Averia Serif Libre';
-      src: url('../css/Averia_Serif_Libre/AveriaSerifLibre-Light.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Averia Serif Libre';
-      src: url('../css/Averia_Serif_Libre/AveriaSerifLibre-LightItalic.woff') format('woff');
-      font-weight: 300;
-      font-style: italic;
-  }
-  
-/*   @font-face {
-    font-family: 'Averia Serif Libre';
-      src: url('../css/Averia_Serif_Libre/AveriaSerifLibre-Regular.woff') format('woff');
-      font-weight: 400;
-      font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Averia Serif Libre';
-      src: url('../css/Averia_Serif_Libre/AveriaSerifLibre-Bold.woff') format('woff');
-      font-weight: 700;
-      font-style: normal;
-  } */
-  
-  @font-face {
-    font-family: 'Averia Serif Libre';
-      src: url('../css/Averia_Serif_Libre/AveriaSerifLibre-BoldItalic.woff') format('woff');
-      font-weight: 700;
-      font-style: italic;
-  }
-  
-  @font-face {
-    font-family: 'Overpass';
-      src: url('../css/Overpass/Overpass-Light.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Overpass';
-      src: url('../css/Overpass/Overpass-LightItalic.woff') format('woff');
-    font-weight: 300;
-    font-style: italic;
-  }
-  
-/*   @font-face {
-    font-family: 'Overpass';
-      src: url('../css/Overpass/Overpass-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-  } */
-  
-/*   @font-face {
-    font-family: 'Overpass';
-      src: url('../css/Overpass/Overpass-Bold.woff') format('woff');
-    font-weight: 700;
-    font-style: normal;
-  } */
-  
-  @font-face {
-    font-family: 'Overpass';
-      src: url('../css/Overpass/Overpass-BoldItalic.woff') format('woff');
-    font-weight: 700;
-    font-style: italic;
-  }
-  
-  @font-face {
-    font-family: 'Montserrat';
-      src: url('../fonts/overpass_mono/overpass-mono-bold-webfont.woff') format('woff'),
-            url('../fonts/overpass_mono/overpass-mono-bold-webfont.woff2') format('woff2');
-    font-weight: 700;
-  }
+
 
 
   html {
@@ -199,13 +124,15 @@ p {
 .menu {
   display: flex;
 }
-.menu li {
-  padding-left: 30px;
+
+.menu a underline {
+  margin-left: 30px;
+}
+
+.menu a {
   display: inline;
   margin: 0 10px;
   font-size: 18px;
-}
-.menu li a {
   display: inline-block;
   text-decoration: none;
   text-align: center;
@@ -214,7 +141,7 @@ p {
   text-transform: uppercase;
   color: #36454F;
 }
-.menu li a::after {
+.menu a::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -225,7 +152,7 @@ p {
   transition: 0.15s ease-in-out;
 }
 
-.menu li a:hover:after {
+.menu a:hover:after {
   width: 100%;
 }
 
@@ -642,11 +569,10 @@ a:hover {
   background-color: #CDC1E5;
   transition: all 0.2s ease-in-out;
 }
-.menu li {
-  margin-top: 40px;
-}
-.menu li a {
+
+.menu a {
   padding: 10px;
+  margin-top: 40px;
 }
 .open-menu, .close-menu {
   display: block;

@@ -13,15 +13,15 @@ document.addEventListener("DOMContentLoaded", () => {
       recipeCards.innerHTML = data;
   };
 
-  // Event listener for the search button
-  searchButton.addEventListener("click", () => {
-      const query = searchInput.value.trim();
-      fetchRecipes(query);
-  });
+//   // Event listener for the search button
+//   searchButton.addEventListener("click", () => {
+//       const query = searchInput.value.trim();
+//       fetchRecipes(query);
+//   });
 
-  // Event listener for real-time search
-  searchInput.addEventListener("input", () => {
-      const query = searchInput.value.trim();
-      fetchRecipes(query);
-  });
+//   // Event listener for real-time search
+//   searchInput.addEventListener("input", () => {
+//       const query = searchInput.value.trim();
+//       fetchRecipes(query);
+//   });
 });
