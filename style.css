@@ -644,3 +644,23 @@ footer {
   padding: 2rem;
   color: beige;
 }
+
+.casestudy {
+  margin: 50px auto;
+  max-width: 1200px;
+  padding: 4rem;
+}
+
+.casestudy img {
+  max-width: 500px;
+  width:100%;
+}
+
+.casestudy h2 {
+  margin-top: 30px;
+  color:#36454F;
+}
+
+.casestudy h1 {
+  color:#36454F;
+}

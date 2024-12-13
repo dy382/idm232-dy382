@@ -13,4 +13,10 @@ if ($conn->connect_error) {
 }
 
 $conn->close();
+
+
+function convertToUTF8($str) {
+    return mb_convert_encoding($str, 'UTF-8', 'ISO-8859-1');
+}
+
 ?>

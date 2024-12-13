@@ -58,13 +58,13 @@
 
                     // Display recipe details
                     echo '<div class="recipe-intro">';
-                    echo '<img src="' . htmlspecialchars($recipe['dish_image']) . '" alt="' . htmlspecialchars($recipe['recipe_name']) . '" class="dish-image">';
+                    echo '<img src="' . convertToUTF8($recipe['dish_image']) . '" alt="' . convertToUTF8($recipe['recipe_name']) . '" class="dish-image">';
                     echo '<div class="recipe-description">';
-                    echo '<h1>' . utf8_encode($recipe['recipe_name']) . '</h1>';
-                    echo '<p><strong>Cuisine:</strong> ' . htmlspecialchars($recipe['cuisine']) . '</p>';
-                    echo '<p><strong>Cook Time:</strong> ' . htmlspecialchars($recipe['cook_time']) . '</p>';
-                    echo '<p><strong>Servings:</strong> ' . htmlspecialchars($recipe['servings']) . '</p>';
-                    echo '<p><strong>Description:</strong> ' . nl2br(utf8_encode($recipe['descriptions'])) . '</p>';
+                    echo '<h1>' . convertToUTF8($recipe['recipe_name']) . '</h1>';
+                    echo '<p><strong>Cuisine:</strong> ' . convertToUTF8($recipe['cuisine']) . '</p>';
+                    echo '<p><strong>Cook Time:</strong> ' . convertToUTF8($recipe['cook_time']) . '</p>';
+                    echo '<p><strong>Servings:</strong> ' . convertToUTF8($recipe['servings']) . '</p>';
+                    echo '<p><strong>Description:</strong> ' . nl2br(convertToUTF8($recipe['descriptions'])) . '</p>';
                     echo '</div>';
                     echo '</div>';
                     echo '<h2>Ingredients</h2>';
@@ -74,11 +74,11 @@
                     echo '<ul>';
                     foreach ($ingredients as $ingredient) {
                         if (trim($ingredient)) {
-                            echo '<li>' . utf8_encode($ingredient) . '</li>';
+                            echo '<li>' . convertToUTF8($ingredient) . '</li>';
                         }
                     }
                     echo '</ul>';
-                    echo '<img src="' . htmlspecialchars($recipe['ingredients_image']) . '" alt="Ingredients for ' . htmlspecialchars($recipe['recipe_name']) . '" class="ingredients-image">';
+                    echo '<img src="' . convertToUTF8($recipe['ingredients_image']) . '" alt="Ingredients for ' . convertToUTF8($recipe['recipe_name']) . '" class="ingredients-image">';
                     echo '</div>';
 
                     echo '<h2>Steps</h2>';
@@ -94,24 +94,24 @@
         
                             echo '<div class="step">';
                             if ($stepHeader) {
-                                echo '<h3>' . utf8_encode($stepHeader) . '</h3>';
+                                echo '<h3>' . convertToUTF8($stepHeader) . '</h3>';
                             }
                             if ($stepDescription) {
-                                echo '<p>' . nl2br(utf8_encode($stepDescription)) . '</p>';
+                                echo '<p>' . nl2br(convertToUTF8($stepDescription)) . '</p>';
                             }
                             if (!empty($stepImages[$index])) {
-                                echo '<img src="' . htmlspecialchars($stepImages[$index]) . '" alt="Step ' . ($index + 1) . '" class="steps-image">';
+                                echo '<img src="' . convertToUTF8($stepImages[$index]) . '" alt="Step ' . ($index + 1) . '" class="steps-image">';
                             }
                             echo '</div>';
                         }
                     }
                     echo '</div>';
                 } else {
-                    echo '<p>No recipe found for ID: ' . htmlspecialchars($recipeId) . '</p>';
+                    echo '<p>No recipe found for ID: ' . convertToUTF8($recipeId) . '</p>';
                 }
                 $stmt->close();
             } else {
-                echo '<p>Failed to prepare the query: ' . htmlspecialchars($conn->error) . '</p>';
+                echo '<p>Failed to prepare the query: ' . convertToUTF8($conn->error) . '</p>';
             }
         } else {
             echo '<p>Invalid recipe ID.</p>';

@@ -83,11 +83,11 @@ require_once './db.php';
                     $imagePath = (!empty($row['dish_image']) && file_exists($row['dish_image'])) ? $row['dish_image'] : 'default-image.jpg';
 
                     echo '<article class="recipe-card">';
-                    echo '<a href="recipe.php?id=' . htmlspecialchars($row["id"]) . '">';
-                    echo '<img src="' . htmlspecialchars($imagePath) . '" alt="' . htmlspecialchars($row["recipe_name"]) . '">';
-                    echo '<h3>' . utf8_encode($row["recipe_name"]) . '</h3>';
+                    echo '<a href="recipe.php?id=' . convertToUTF8($row["id"]) . '">';
+                    echo '<img src="' . convertToUTF8($imagePath) . '" alt="' . convertToUTF8($row["recipe_name"]) . '">';
+                    echo '<h3>' . convertToUTF8($row["recipe_name"]) . '</h3>';
                     echo '</a>';
-                    echo '<p>' . htmlspecialchars($row["cuisine"]) . ' | ' . htmlspecialchars($row["cook_time"]) . ' | ' . htmlspecialchars($row["servings"]) . ' servings</p>';
+                    echo '<p>' . convertToUTF8($row["cuisine"]) . ' | ' . convertToUTF8($row["cook_time"]) . ' | ' . htmlspecialchars($row["servings"]) . ' servings</p>';
                     echo '</article>';
                 }
             } else {
